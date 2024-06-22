@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topline {
+    width: 434px;
+    height: 18px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #FDBD03;
+}
+
+.whazzap {
+    background-color: #FDBD03;
+    border-radius: 50%;
+    border: 10px solid #FDBD03;
+    width: 54px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 70px;
+    width: 100vw;
+}
+
+
+
+.formBox {
+    margin-top: 50px;
+    width: 80vw;
+    margin-left: 40px;
+}
+
+.formBox h1 {
+    font: normal normal 900 66px/97px Heebo;
+    color: #FDBD03;
+}
+
+.formBox p {
+    width: 400px;
+    margin-bottom: 20px;
+    font: normal normal normal 20px/29px Heebo;
+    color: #020253;
+}
+
+.formBox form .details {
+    display: flex;
+}
+
+.formBox form .details .box input {
+    margin-right: 15px;
+    height: 25px;
+}
+
+.formBox form .box label {
+    display: block;
+    font: normal normal bold 16px/24px Heebo;
+    color: #2C2C2C;
+    font-size: 0.8rem;
+}
+
+.bigCell {
+    margin-right: 200px;
+    height: 550px;
+}
+
+.formBox form .box input {
+    background-color: #E5EEFF;
+    border: none;
+    border-bottom: 2px solid #FDBD03;
+    width: 300px;
+}
+
+.formBox form .wideBox input {
+    width: 615px;
+    height: 70px;
+}
+
+.formBox form .wideBox label {
+    margin-top: 10px;
+}
+
+.formBox form input[type="submit"] {
+    width: 100px;
+    height: 30px;
+    margin-top: 40px;
+    border: none;
+    background: #FDBD03;
+    font: normal normal bold 22px/30px Heebo;
+    color: #000000;
+    font-size: 1rem;
+}
+
+.icons {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    position: absolute;
+    bottom: -60px;
+    left: 30px;
+    width: 100vw;
+}
+
+.icons img {
+    background-color: #FDBD03;
+    border: 10px solid #FDBD03;
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.bottomline {
+    background-color: #FDBD03;
+    height: 18px;
+    width: 725px;
+    position: absolute;
+    bottom: -100px;
+    left: 0px;
+}
+
+@media (max-width:768px) {
+    .whazzap {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .formBox {
+        margin-left: 20px;
+    }
+
+    .formBox form .details {
+        flex-direction: column;
+    }
+
+    .formBox form .details .box label {
+        margin-top: 10px;
+    }
+
+    .formBox form .details .box input {
+        width: 355px;
+    }
+
+    .bottomline {
+        bottom: -900px;
+    }
+
+    .formBox form input[type="submit"] {
+        margin-top: 20px;
+        width: 350px;
+    }
+
+    .bigCell {
+        margin: 0px auto;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+    }
+
+    .icons {
+        justify-content: center;
+        align-items: end;
+        bottom: -860px;
+        left: 0px;
+    }
+
+    .formBox form .wideBox input {
+        width: 350px;
+        height: 70px;
+    }
+}

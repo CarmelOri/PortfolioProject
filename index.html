@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ori Carmel - Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+
+<body>
+    <nav id="topNav" class="navbar navbar-expand-lg">
+        <div class="nav-container">
+            <div class="left-nav">
+                <span id="navSpan">
+                    <img src="images/myPictureSquare.jpg" alt="My Picture" width="50" class="profile-pic">
+                    Ori Carmel
+                </span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">&#9776;</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#main">Main</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-me">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">My Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-me">Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section id="main">
+            <img src="images/background4.png" alt="Portfolio Background" class="background-img">
+            <h1>My Portfolio</h1>
+            <p id="portfolioDes">Welcome to my portfolio!<br> Here (down below) you can find my works and projects in
+                JavaScript, HTML and CSS. <br>
+                Hope you will enjoy, and maybe hire me for a job? no pressure.</p>
+        </section>
+        <section id="logos">
+            <h2>TOOLS & TECHNOLOGIES IN USE:</h2>
+            <div class="logos-container">
+                <img src="images/htmlLogoFinal.png" alt="HTML Logo" width="50">
+                <img src="images/cssLogoFinal.png" alt="CSS Logo" width="50">
+                <img src="images/bootstrapFinal.png" alt="Bootstrap Logo" width="50">
+                <img src="images/sassLogoFinal.png" alt="SASS Logo" width="50">
+            </div>
+        </section>
+        <section id="about-me">
+            <div class="about-me-text">
+                <h1>About Me</h1>
+                <p>Hello! My name is Ori Carmel, I am a new programmer and web designer, taking my first steps in this
+                    awesome
+                    and big world. I am 26 years old from Kiryat Ono, and when I am not programming, I'm probably
+                    playing my
+                    bass or listening to music.</p>
+            </div>
+            <div class="about-me-image">
+                <img src="/Users/oricarmel/Desktop/Portfolio/images/meWithBackgroundFull.jpg" alt="About Me Picture"
+                    class="bigPicture">
+                <a href="OriCarmel-Resume.pdf" class="resume-link" target="_blank">Click here to download
+                    my CV!</a>
+            </div>
+        </section>
+        <section id="projects">
+            <h1>My Projects:</h1>
+            <h2>HTML & CSS Projects</h2>
+            <div class="projects-grid">
+                <div class="project-container">
+                    <img src="images/coffeePreview.png" alt="Coffee Project" width="200px">
+                    <h3>Project 1 - Coffee</h3>
+                    <button onclick="window.location.href='projects/Caffe/indexCoffee.html'">Click here to open the
+                        project</button>
+                </div>
+                <div class="project-container">
+                    <img src="images/takeYouForwardPreview.png" alt="Take You Forward Project" width="200px">
+                    <h3>Project 2 - Take You Forward</h3>
+                    <button onclick="window.location.href='projects/TakeYouForward/index.html'">Click here to
+                        open the project</button>
+                </div>
+                <div class="project-container">
+                    <img src="images/hereAndNowPreview.png" alt="Here And Now Project" width="200px">
+                    <h3>Project 3 - Here And Now</h3>
+                    <button onclick="window.location.href='projects/HereAndNow/index.html'">Click here to
+                        open the project</button>
+                </div>
+                <div class="project-container">
+                    <img src="images/freeConsultationPreview.png" alt="Free Constultation Project" width="200px">
+                    <h3>Project 4 - Free Consultation</h3>
+                    <button onclick="window.location.href='projects/FreeConsultation/index.html'">Click here to
+                        open the project</button>
+                </div>
+                <div class="project-container">
+                    <img src="images/pinkTakeYouPreview.jpg" alt="Think Outside Project" width="200px">
+                    <h3>Project 5 - Take You Forward - Pink Edition</h3>
+                    <button onclick="window.location.href='projects/PinkTakeYouForward/index.html'">Click here to
+                        open the project</button>
+                </div>
+                <div class="project-container">
+                    <img src="images/discoverTheWorldPreview.png" alt="Discover The World Project" width="200px">
+                    <h3>Project 6 - Discover The World</h3>
+                    <button onclick="window.location.href='projects/DiscoverTheWorld/indexDiscover.html'">Click here to
+                        open the project</button>
+                </div>
+            </div>
+            <div class="willBeAddedSoon">
+                <h1>JavaScript projects will be added soon!</h1>
+            </div>
+        </section>
+        <section id="contact-me">
+            <form>
+                <h1>Contact Me</h1>
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" required><br>
+                <label for="message">Any message you want to add?</label><br>
+                <input type="text" id="message" name="message"><br>
+                <button type="submit" onclick="">Submit</button><br>
+            </form>
+            <img src="images/mailbackground.png" alt="Mail photo">
+        </section>
+        <nav class="Links">
+            <div class="link-container">
+                <div class="facebookLink">
+                    <a href="https://www.facebook.com/ori.carmel.7/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/facebooklogo.png" alt="Facebook Logo" width="70"><br>
+                        Facebook
+                    </a>
+                </div>
+                <div class="emailLink">
+                    <a href="mailto:ori3carmel@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <img src="images/maillogo.png" alt="Gmail Logo" width="70"><br>
+                        Email
+                    </a>
+                </div>
+                <div class="whatsappLink">
+                    <a href="https://wa.me/+972547998897?text=" target="_blank" rel="noopener noreferrer">
+                        <img src="images/whatsapplogo.png" alt="whatsAppLogo" width="70"><br>
+                        Whatsapp
+                    </a>
+                </div>
+                <div class="linkedinLink">
+                    <a href="https://www.linkedin.com/in/ori-carmel-324091246/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="images/linkedinlogo.png" alt="Linkedin Logo" width="70"><br>
+                        LinkedIn
+                    </a>
+                </div>
+                <div class="gitLink">
+                    <a href="https://github.com/CarmelOri" target="_blank" rel="noopener noreferrer">
+                        <img src="images/gitlogo.png" alt="Github Logo" width="70"><br>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <section id="bottom">
+        <div>Built and designed by Ori Carmel ©</div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

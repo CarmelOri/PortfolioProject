@@ -1,0 +1,20 @@
+header {
+    background-color: #797777b4;
+    width: 800px;
+    height: 300px;
+    margin: 0 auto;
+    font-family: "Noto Sans";
+
+
+    @include desktop {
+        background-color: #797777b4;
+    }
+
+    @include tablet {
+        background-color: #797777b4;
+    }
+
+    @include mobile {
+        background-color: #797777b4;
+    }
+}

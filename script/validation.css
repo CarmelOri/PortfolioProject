@@ -1,0 +1,15 @@
+@media (max-width: 992px) {
+  header {
+    background-color: red;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    background-color: green;
+  }
+}
+@media (max-width: 576px) {
+  header {
+    background-color: blue;
+  }
+}/*# sourceMappingURL=validation.css.map */

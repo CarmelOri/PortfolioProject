@@ -1,0 +1,42 @@
+nav {
+    width: 800px;
+    background-color: #333;
+    height: 40px;
+    margin: 0 auto;
+
+    @include desktop {
+        background-color: #333;
+    }
+
+    @include tablet {
+        width: 100vw;
+        background-color: #333;
+    }
+
+    @include mobile {
+        width: 100vw;
+        background-color: #333;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-evenly;
+
+
+        a {
+            display: block;
+            text-decoration: none;
+            width: 100px;
+            text-align: center;
+            color: aquamarine;
+            line-height: 2.5;
+
+            // & - Parent Selector
+            &:hover {
+                color: #000;
+                background-color: aquamarine;
+            }
+        }
+    }
+}

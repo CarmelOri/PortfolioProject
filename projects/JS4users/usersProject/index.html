@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2b2b2b;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?nature,water');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: #f5f5f5;
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #f5f5f5;
+        }
+
+        #logoutButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgb(112, 107, 164);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #logoutButton:hover {
+            background-color: rgb(44, 44, 67);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .photo {
+            position: relative;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        .photo-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .photo-actions button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .photo-actions button span {
+            font-size: 24px;
+        }
+
+        .photo-actions button span.liked::before {
+            content: '❤️';
+        }
+
+        .photo-actions button span::before {
+            content: '♡';
+        }
+
+        .liked {
+            color: red;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .photo-actions button span {
+                font-size: 20px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .photo-actions button span {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <a href="login.html"><button id="logoutButton">Logout</button></a>
+    <h1>Welcome!</h1>
+    <div class="gallery" id="photoGallery">
+    </div>
+
+
+    <script>
+        const photos = [
+            { id: 1, src: 'images/photo1.png', title: 'Mountain View' },
+            { id: 2, src: 'images/photo2.png', title: 'Forest Path' },
+            { id: 3, src: 'images/photo3.png', title: 'Beach Sunset' },
+            { id: 4, src: 'images/photo4.png', title: 'Desert Dunes' },
+            { id: 5, src: 'images/photo5.png', title: 'Snowy Mountains' },
+            { id: 6, src: 'images/photo6.png', title: 'Rainforest Canopy' },
+            { id: 7, src: 'images/photo7.png', title: 'Crystal Clear Lake' },
+            { id: 8, src: 'images/photo8.png', title: 'Autumn Leaves' },
+            { id: 9, src: 'images/photo9.png', title: 'Waterfall' },
+            { id: 10, src: 'images/photo10.png', title: 'Sunrise' },
+            { id: 11, src: 'images/photo11.png', title: 'City Lights' },
+            { id: 12, src: 'images/photo12.png', title: 'Desert Night' },
+        ];
+
+        const gallery = document.getElementById('photoGallery');
+
+        const userLikes = JSON.parse(localStorage.getItem('userLikes')) || {};
+
+        photos.forEach(photo => {
+            const photoDiv = document.createElement('div');
+            photoDiv.className = 'photo';
+            photoDiv.innerHTML = `
+                <img src="${photo.src}" alt="${photo.title}">
+                <div class="photo-actions">
+                    <button class="like-btn" data-id="${photo.id}">
+                        <span class="${userLikes[photo.id] ? 'liked' : ''}"></span>
+                    </button>
+                </div>
+            `;
+            gallery.appendChild(photoDiv);
+        });
+
+        gallery.addEventListener('click', (e) => {
+            if (e.target.closest('.like-btn')) {
+                const photoId = e.target.closest('button').dataset.id;
+                userLikes[photoId] = !userLikes[photoId];
+
+                localStorage.setItem('userLikes', JSON.stringify(userLikes));
+
+                window.location.reload();
+            }
+        });
+
+        const username = JSON.parse(localStorage.getItem('currentUser'))?.username || 'User';
+        document.getElementById('greeting').textContent = `Welcome, ${username}!`;
+    </script>
+</body>
+
+
+</html>

@@ -5,10 +5,12 @@ Portfolio Project
 Overview
 
 This is my personal portfolio project showcasing my skills and projects.
-The portfolio includes a gallery with 7 sample landing pages that I created using HTML, CSS, SASS, and Bootstrap.
+The portfolio includes a gallery with 14 sample landing pages that I created using HTML, CSS, SASS, Bootstrap and JavaScript.
 
 
 Technologies Used
+
+JavaScript: For creating pages that can do tasks or mimic games.
 
 HTML: For the structure and content of the web pages.
 
@@ -23,7 +25,7 @@ Features
 
 Responsive Design: Ensures that the portfolio looks good on all devices, development practices.
 
-Gallery: A collection of 7 unique landing pages, each demonstrating different design styles and functionalities.
+Gallery: A collection of 14 unique landing pages, each demonstrating different design styles and functionalities.
 
 
 The main portfolio:
@@ -42,6 +44,8 @@ Gallery
 
 The gallery contains the following landing pages:
 
+CSS and HTML design:
+
 Landing page 1: Coffee: a big photo on the right, and a form with 2 fields to the left. When the screen is folded, the photo moves to the top of the page. I used html to build the foundation of the page, css to style it and bootstrap to make it responsive.
 
 Landing page 2: Take you forward: a big headline at the top of the page, and a horizontal form with 2 input fields below it. There is also a background picture. When the page is folded, the form becomes vertical. I used html to build the foundation of the page, css to style it and bootstrap to make it responsive.
@@ -58,6 +62,25 @@ Landing page 7 (bonus project): in this project I wanted to create a page where 
  "kill" the audio of one video when another one starts to play)
 
 
+ JavaScript:
+
+Landing page 1: Tic Tac Toe. A recreation of the iconic X O game, a table of a 3x3 grid. each turn a player needs to fill some tile with an X or and O. the first one to create a line of 3 identicle figures wins the game.
+
+Landing page 2: Minesweeper game. A recreation of the minesweeper game-the player clicks on a square on the board, to reveal a number. the number indicates how many bombs there are in the box proximity (could be any number between 0-8), clicking on a bomb will result in a loss. I added an option to mark squares where the player suspects there is a bomb, and a timer for the player to try to improve his skills from game to game.
+
+Landing page 3: Checkers game. The classic "Damka" game, where both players need to eat all of the opponent's pieces. The pieces can move only diagonally and one square per turn. If they have an opportunity to eat, they jump over the eaten peace. also added the feauture of the king piece, that can move more than one square and backwards as well (this was the hardest part). When clicking on a piece, the board lights up the possible moves.
+
+Landing page 4: Users Simulator. A system where you can sign up, and log in into a page where you can like and dislike photos. The state of the pictures is saved in the code, as well as the users that signed up to the site. There is also an admin managment page where you can log in and delete accounts from the system. (user: admin, password: Admin123!)
+
+Landing page 5: Connect Four game. Another classic where each side needs to create a line of 4 pieces to win the game, when the other is trying to get in your way.
+
+Landing page 6: 2048 game. The hardest one for sure. a 4x4 board, each turn a number (2 or 4) appears, the player needs to merge the even number to get a bigger number. The task is to get to the number 2048 before the board is filled and no playable moves are possible. Added a feature that records the highscore for the player.
+
+Landing page 7 (bonus): Currency Converter. Here i used json and api. The user needs to choose the number he wants to convert, and select from which type of coin he needs to do the conversion.
+
+All pages are responsive and designed. Hope youll enjoy!
+
+
 To view the project locally:
 Clone the repository:
 -bash
@@ -67,16 +90,8 @@ https://github.com/CarmelOri/PortfolioProject
 Navigate to the project directory:
 -bash
 -copy code
--cd portfolio-project
+-cd portfolioproject
 -open the index.html file that's in the main PortfolioProject folder.
 
 Usage:
 Navigate through the portfolio to explore the different landing pages and see implementation of various web technologies.
-
-
-Personal notes:
-The project is missing a lot of SASS functionality-i have made a mistake and started my big projects without it, and later when I finished I couldn't manage to merge the SASS with an existing code, every solution I have tried just made my pages unfunctional. Hope that you'll still enjoy!
-
-In the rest of the topics (html css and bootstrap) there was definitely a learning curve but now I can say that I'm  a lot better at those topics after I worked on this project.
-
-Hope you enjoy!

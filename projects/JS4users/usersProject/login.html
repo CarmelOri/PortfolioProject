@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a7aeb3;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #3d4480;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 6px 0;
+            background-color: #3d4480;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(44, 44, 67);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .admin-login-info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <input type="text" id="usernameInput" placeholder="Username" required />
+            <input type="password" id="passwordInput" placeholder="Password" required />
+            <button type="button" id="loginButton">Log In</button>
+            <a href="register.html"><button type="button" id="signUpButton">Don't have an account? SIGN UP
+                    here</button></a>
+        </form>
+        <div class="admin-login-info">
+            To log in as an admin, enter these fields:<br>
+            Username: "admin" Password: "Admin123!"
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", () => {
+            let username = document.getElementById("usernameInput").value;
+            let password = document.getElementById("passwordInput").value;
+
+            const adminUsername = "admin";
+            const adminPassword = "Admin123!";
+
+
+            if (username === adminUsername && password === adminPassword) {
+                location.href = "./adminCrm.html";
+            } else {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+
+
+                let userThatTryToLogin = users.find(
+                    (user) => user.username === username && user.password === password
+                );
+
+
+                if (userThatTryToLogin) {
+                    location.href = "./index.html";
+                } else {
+                    alert("Incorrect username or password");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

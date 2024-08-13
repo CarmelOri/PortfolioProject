@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a7aeb3;
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #3d4480;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3d4480;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(44, 44, 67);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form>
+            <input type="text" id="nameInput" placeholder="Full Name" required />
+            <input type="text" id="userNameInput" placeholder="Username" required />
+            <input type="email" id="emailInput" placeholder="Email Address" required />
+            <input type="password" id="passwordInput" placeholder="Password" required />
+            <button type="button" id="registerButton">Register</button>
+        </form>
+    </div>
+    <script>
+        function containsLetter(input) {
+            for (let i = 0; i < input.length; i++) {
+                if (
+                    (input[i] >= "A" && input[i] <= "Z") ||
+                    (input[i] >= "a" && input[i] <= "z")
+                ) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        function containsSymbol(input) {
+            let symbols = "!@#$%^&*()_+=-[]{};':\"\\|,.<>/?";
+            for (let char of input) {
+                if (symbols.includes(char)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        function validateFields(name, username, password) {
+            if (name.length < 2) {
+                alert("The name must be minimum 2 characters");
+                return false;
+            }
+            if (username.length < 2) {
+                alert("The user name must be minimum 2 characters");
+                return false;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let userWithSameUsername = users.find(
+                (user) => user.username == username
+            );
+            if (userWithSameUsername) {
+                alert("This user name is already taken");
+                return false;
+            }
+
+            if (
+                password.length < 8 ||
+                password.length > 20 ||
+                !containsLetter(password) ||
+                !containsSymbol(password)
+            ) {
+                alert(
+                    "The password must be 8 to 20 chars and must have one letter and one symbol"
+                );
+                return false;
+            }
+            return true;
+        }
+        function registerUser(name, username, email, password) {
+            let newUser = {
+                name: name,
+                username: username,
+                email: email,
+                password: password,
+                isAdmin: false,
+                lastLogged: new Date(),
+            };
+
+
+            let users = JSON.parse(localStorage.getItem("users"));
+            if (users == null) {
+                users = [];
+            }
+
+
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+            window.location.href = "./index.html";
+        }
+
+
+        document
+            .getElementById("registerButton")
+            .addEventListener("click", () => {
+                let name = document.getElementById("nameInput").value;
+                let username = document.getElementById("userNameInput").value;
+                let email = document.getElementById("emailInput").value;
+                let password = document.getElementById("passwordInput").value;
+
+
+                if (validateFields(name, username, password)) {
+                    registerUser(name, username, email, password);
+                }
+            });
+    </script>
+</body>
+
+</html>
